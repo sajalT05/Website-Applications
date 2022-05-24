@@ -1,0 +1,31 @@
+{% extends 'blogtemplate.html' %}
+
+{% block title %}blog home page{% endblock title %}
+
+{% block content %}
+<br><br><br>
+<center>
+<div class="container">
+    <h1>blog home page</h1>
+</div>
+</center>
+<br><br><br>
+{% comment "for loop" %}iterate through all blogs{% endcomment %}
+<div class="container">
+{% for blog in blogs %}
+<!--card for blog-->
+<div class="container">
+<div class="card" style="width: 1360px;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{blog.blog_title}}</h5>
+      <p class="card-text">{{blog.blog_content}}</p>
+      <a href="/blogpost/{{blog.blog_slug}}" class="btn btn-primary">READ</a>
+    </div>
+  </div>
+</div>
+<!-- card for blog ends-->
+{% endfor %}
+</div>
+
+{% endblock content %}

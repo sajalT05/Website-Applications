@@ -1,0 +1,48 @@
+{% extends 'template.html' %}
+
+{% block title %}ToDo List Form Page{% endblock title %}
+
+{% block content %}
+<br><br>
+<center><h3> Add Information</h3></center>
+<br>
+<div class="container">
+    <form action="/todolist/form" method="post">
+        {% csrf_token %}
+        <div class="row g-3">
+            <div class="col">
+              <input type="text" id="first_name" name="first_name" class="form-control" placeholder="First name" aria-label="First name">
+            </div>
+            <div class="col">
+              <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Last name" aria-label="Last name">
+            </div>
+          </div>
+          <br>
+          <div class="mb-3">
+            <input type="email" id="user_email" name="user_email" class="form-control" id="exampleFormControlInput1" placeholder="Email address">
+          </div>
+          <div class="mb-3">
+            <textarea id="user_description" name="user_description" class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Description"></textarea>
+          </div>
+        <br>
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">SUBMIT TASK</button>
+        </div>
+    </form>
+    <br>
+    <!--alert for submission-->
+    <div class="row g-3">
+    <!--if formSuccess in formContext is true-->
+    {% if formSuccess %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Congratulations!</strong> Your information have been submitted.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    <!--end alert-->
+  </div>
+</div>
+
+{% endblock content %}  
+
+
