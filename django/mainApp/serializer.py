@@ -1,9 +1,5 @@
 from rest_framework import serializers
+from django.contrib.auth.models import User, Group
 
 # import class from models
 from .models import DRFapi
-
-class APIserializer(serializers.ModelSerializer):
-    class Meta:
-        model=DRFapi
-        fields='__all__'
