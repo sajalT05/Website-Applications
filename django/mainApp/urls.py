@@ -41,10 +41,6 @@ urlpatterns = [
 	path('blog/blogpost<str:slug>', views.blogpost, name="blog" ),
 
 
-# api --> django rest framework
-	path('api/', views.drf_api, name="api" ),
-
-
 ]
 
 

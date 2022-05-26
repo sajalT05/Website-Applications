@@ -105,15 +105,3 @@ def blogpost(request):
 # blog search page
 def blogsearch(request):
     return render(request, 'blog/blogsearch.html')
-
-
-# api --> django rest framework
-# DRFapi
-def drf_api(request):
-    # get the data from the database
-    drf_api=DRFapi.objects.all()
-    # create a list to pass the data to the html page
-    drf_apiContext=list(drf_api.values())
-    return JsonResponse({
-        'drf_api':drf_apiContext
-    })

@@ -40,21 +40,3 @@ class Blog(models.Model):
     # attribute title of the saved blog in the admin backend database
     def __str__(self):
         return self.blog_title
-
-# api --> django rest framework
-class DRFapi(models.Model):
-    api_uid=models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    api_created=models.DateTimeField(auto_created=True)
-    api_updated=models.DateTimeField(auto_now_add=True)
-    # data
-    api_data_title=models.CharField(max_length=200)
-    api_data_content=models.TextField()
-    api_data_slug=models.CharField(max_length=100)
-    api_data_status=models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.api_title
-    
-    class Meta:
-        abstract=True
-        ordering=['created']
